@@ -9,7 +9,7 @@ documents: List[str] = [
 
 # This will trigger the model download and initialization
 embedding_model = TextEmbedding(model_name="mixedbread-ai/mxbai-embed-large-v1")
-print("The model BAAI/bge-small-en-v1.5 is ready to use.")
+print("The model is ready to use.")
 
 embeddings_generator = embedding_model.embed(documents)  # reminder this is a generator
 embeddings_list = list(embedding_model.embed(documents))
