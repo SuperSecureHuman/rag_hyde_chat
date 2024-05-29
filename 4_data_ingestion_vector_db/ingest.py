@@ -1,11 +1,3 @@
-# Overcome CSV field size limit
-import sys
-import csv
-
-csv.field_size_limit(sys.maxsize)
-
-######################
-
 from llama_index.readers.json import JSONReader
 from llama_index.core import SimpleDirectoryReader, StorageContext
 
@@ -36,10 +28,3 @@ storage_context = StorageContext.from_defaults(vector_store=vector_store)
 index = VectorStoreIndex.from_documents(
     documents, storage_context=storage_context, show_progress=True
 )
-
-# storage_context = StorageContext.from_defaults(vector_store=vector_store)
-# index = VectorStoreIndex.from_documents(documents, storage_context=storage_context)
-
-# query_engine = index.as_query_engine()
-# response = query_engine.query("Who is the author?")
-# print(response)
