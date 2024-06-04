@@ -1,6 +1,8 @@
 # Chat with Lex (or at least his guests)
 
-RAG using HyDE with completely open-source, self-hostable models
+RAG using HyDE with completely open-source, self-hostable models.
+
+TLDR; check folder 7 for the final app.
 
 ## Components
 
@@ -12,6 +14,24 @@ RAG using HyDE with completely open-source, self-hostable models
 6. **Llamaindex** - [Llamaindex](https://www.llamaindex.ai/) - Provides the RAG framework
 7. **Streamlit** - [Streamlit](https://streamlit.io/) - For the UI
 8. **OpenAI API** - Optional: useful to isolate bugs from self-hosting models
+
+
+## Plan of the System
+
+The major components of this system will be the VectorDB, LLM inference, and the embedding model. The Streamlit application is quite light in comparison.
+
+By choosing scalable bases for the major components, the entire setup will be inherently scalable.
+
+- **Milvus**: Supports using a Kubernetes (k8s) cluster, allowing us to set scaling rules so the DB will scale according to the load.
+  
+- **VLLM**: This is by far the fastest LLM serving engine I've used. We can scale it to use any number of GPUs within a single node, and we can set up multi-node inference using a Ray cluster. It's also possible to set up k8s load-based scaling, provided that we define the resources properly.
+
+- **Embedding**: In this case, I've used local serving for the embedding. Ideally, I would opt for serving the embedding separately and scaling them independently.
+
+Put together, the system design would look something like this:
+
+![System Design](https://i.imgur.com/tp7EmZb.png)
+
 
 ## Let's Build It!
 
@@ -94,4 +114,4 @@ Given a query, it outputs the answer,  the Hypothetical Document it generated, a
 
 [app.py](./7_hyde_streamlit_customllm/app.py)
 
-![](https://i.imgur.com/JcnQUyn.png)
+![](https://i.imgur.com/HWSzlXX.png)

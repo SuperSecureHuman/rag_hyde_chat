@@ -8,7 +8,7 @@ from llama_index.embeddings.fastembed import FastEmbedEmbedding
 from llama_index.llms.openai_like import OpenAILike
 
 st.set_page_config(
-    page_title="HyDE with my DB Datastore",
+    page_title="HyDe with Lex",
     page_icon="🦙",
     layout="centered",
     initial_sidebar_state="auto",
@@ -18,7 +18,7 @@ st.set_page_config(
 # Sidebar inputs
 st.sidebar.title("Configuration")
 llm_base_url = st.sidebar.text_input(
-    "LLM Base URL", placeholder="Enter LLM base URL (OpenAI format)"
+    "LLM Base URL", placeholder="Enter LLM base URL (OpenAI Compitatible API)"
 )
 llm_api_key = st.sidebar.text_input(
     "LLM Key", type="password", placeholder="Enter LLM API Key"
