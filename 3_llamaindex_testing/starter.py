@@ -1,8 +1,4 @@
-from llama_index.llms.openai import OpenAI
-from llama_index.core import Settings
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
-
-Settings.llm = OpenAI(temperature=0.2, model="gpt-4")
 
 documents = SimpleDirectoryReader("data").load_data()
 index = VectorStoreIndex.from_documents(

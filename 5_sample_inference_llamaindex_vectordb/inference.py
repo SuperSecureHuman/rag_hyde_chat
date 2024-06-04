@@ -2,11 +2,9 @@ from llama_index.core import (
     VectorStoreIndex,
     Settings,
     StorageContext,
-    load_index_from_storage,
 )
 
 from llama_index.core.query_engine import CitationQueryEngine
-from llama_index.core.retrievers import VectorIndexRetriever
 from llama_index.vector_stores.milvus import MilvusVectorStore
 from llama_index.embeddings.fastembed import FastEmbedEmbedding
 

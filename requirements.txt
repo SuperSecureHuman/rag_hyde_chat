@@ -1,0 +1,9 @@
+pymilvus
+streamlit
+llama-index
+fastembed-gpu
+onnxruntime-gpu
+llama-index-readers-file
+llama-index-readers-json
+llama-index-embeddings-fastembed
+llama-index-vector-stores-milvus
